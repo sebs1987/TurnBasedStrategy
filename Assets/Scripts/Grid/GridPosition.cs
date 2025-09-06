@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public struct GridPosition : IEquatable<GridPosition>
 {
@@ -44,5 +45,15 @@ public struct GridPosition : IEquatable<GridPosition>
     public static bool operator !=(GridPosition a, GridPosition b)
     {
         return !(a == b);
+    }
+
+    public static GridPosition operator +(GridPosition a, GridPosition b)
+    {
+        return new GridPosition(a.x + b.x, a.z + b.z);
+    }
+
+    public static GridPosition operator -(GridPosition a, GridPosition b)
+    {
+        return new GridPosition(a.x - b.x, a.z - b.z);
     }
 }
